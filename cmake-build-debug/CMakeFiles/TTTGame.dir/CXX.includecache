@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/benjaminraiford/CLionProjects/project4-PennWarren/TTTGame.cpp
+iostream
+-
+ctime
+-
+vector
+-
+TicTacToe.h
+/Users/benjaminraiford/CLionProjects/project4-PennWarren/TicTacToe.h
+
+/Users/benjaminraiford/CLionProjects/project4-PennWarren/TicTacToe.h
+

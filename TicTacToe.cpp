@@ -35,7 +35,6 @@ void TicTacToe::initializeBoard() {
     }
 }
 
-
 // Print the current board
 void TicTacToe::printBoard() const {
     cout << "-------------" << endl;
