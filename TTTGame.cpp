@@ -3,7 +3,6 @@
  * Date: October 4, 2019
  * Description: A program that implements the game Tic-Tac-Toe
  */
-
 #include <iostream>
 #include <ctime>
 #include <vector>
@@ -89,19 +88,16 @@ int main() {
 }
 
 bool randomPlayer(){
-    if(rand() % 2 == 0){
-        return true;
-    }
-    else{
-        return false;
-    }
+    //50/50 chance
+    return rand() % 2 == 0;
 }
 int findGameType(){
     int numP = 0;
     while (numP < 1 || numP > 2) {
         cout << "Would you like to play with one player or two players? Enter either 1 or 2: " << endl;
         cin >> numP;
-        cin.ignore(numeric_limits<streamsize>::max(),'\n');
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');//clear input to prevent runtime errors
+        //only accept 1 or 2 as input
         if(numP < 1 || numP > 2) {
             cout << "Please enter a valid number of players" << endl;
         }
@@ -110,15 +106,16 @@ int findGameType(){
 }
 void placePlayerMark(TicTacToe& g){
     int r,c;
-    bool loopAgain;
+    bool loopAgain;//set to true while placeMark returns false
     do{
         loopAgain = false;
         cout << "Enter row and column using 1-3" << endl;
-        cin >> r >> c;
-        cin.ignore(numeric_limits<streamsize>::max(),'\n');
-        r--, c--;
+        cin >> r >> c;//input coordinates in a user-friendly way
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');//clear input to prevent runtime errors
+        r--, c--;//make user input work with the bounds 0-2
+        //only accept valid input
         if(!g.placeMark(r,c)) {
-            cout << "Please enter a position that has not been picked yet\n" << endl;
+            cout << "Please enter a valid position\n" << endl;
             loopAgain = true;
         }
     }while(loopAgain);
@@ -129,8 +126,9 @@ void placeComputerMark(TicTacToe& g){
     bool loopAgain;
     do{
         loopAgain = false;
-        r = rand() % 3;
-        c = rand() % 3;
+        r = rand() % 3;//computer row
+        c = rand() % 3;//computer column
+        //only accept valid input
         if(!g.placeMark(r,c)){
             loopAgain = true;
         }
